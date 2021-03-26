@@ -13,7 +13,7 @@ def run_game():
     tt_settings = Settings()
     screen = pygame.display.set_mode(
         (tt_settings.screen_width, tt_settings.screen_height))
-    pygame.display.set_caption("Alien Invasion")
+    pygame.display.set_caption("Titania")
 
     # Make the play button.
     play_button = Button(tt_settings, screen, "Play")
