@@ -4,6 +4,16 @@ import pygame
 from bullet import Bullet
 from alien import Alien
 
+pygame.init()
+
+laser_sound = pygame.mixer.Sound("sounds/laser.wav")
+
+explosion_sound = pygame.mixer.Sound("sounds/explosion.wav")
+
+death_sound = pygame.mixer.Sound("sounds/player_dead.wav")
+
+game_over = pygame.mixer.Sound("sounds/game_over.wav")
+
 def check_keydown_events(event, tt_settings, screen, ship, bullets):
     """Respond to keypresses."""
     if event.key == pygame.K_RIGHT:
@@ -21,6 +31,7 @@ def fire_bullet(tt_settings, screen, ship, bullets):
     if len(bullets) < tt_settings.bullets_allowed:
         new_bullet = Bullet(tt_settings, screen, ship)
         bullets.add(new_bullet)
+        pygame.mixer.Sound.play(laser_sound)
 
 def check_keyup_events(event, ship):
     """Respond to key releses."""
@@ -119,6 +130,7 @@ def check_bullet_alien_collisions(tt_settings, screen, stats, sb, ship,
         for aliens in collisions.values():
             stats.score += tt_settings.alien_points * len(aliens)
             sb.prep_score()
+            pygame.mixer.Sound.play(explosion_sound)
         check_high_score(stats, sb)
 
     if len(aliens) == 0:
@@ -187,6 +199,7 @@ def ship_hit(tt_settings, screen, stats, sb, ship, aliens, bullets):
     if stats.ships_left > 0:
         # Decrement ships_left
         stats.ships_left -= 1
+        pygame.mixer.Sound.play(death_sound)
 
         # Update scoreboard.
         sb.prep_ships()
@@ -204,6 +217,7 @@ def ship_hit(tt_settings, screen, stats, sb, ship, aliens, bullets):
 
     else:
         stats.game_active = False
+        pygame.mixer.Sound.play(game_over)
         pygame.mouse.set_visible(True)
 
 def check_aliens_bottom(tt_settings, screen, stats, sb, ship, aliens,
