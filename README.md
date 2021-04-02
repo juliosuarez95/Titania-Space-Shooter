@@ -22,3 +22,12 @@ This module simply tracks the stats of the game - both dynamic and static stats.
 
 ###### scoreboard.py
 scoreboard.py is responsible for the player hud. It draws to the screen the player's current score, their high score, the level they are on, and how many lives they have left. 
+
+###### settings.py
+The settings class establishes the settings (both static and dynamic) for Titania. In it you'll find the settings for the bullets width, color, the background color, the screen's dimensions, and the scale at which certain settings such as fleet and player movement speed will change. 
+
+###### ship.py
+The ship class helps in establishing a player object for the game. In it, are functions to assist in drawing the ship to the screen as well s updating it with every input the player may feed into the program. There's also a function called center_ship() which assists in recentering the ship every time the player dies. 
+
+###### titania.py
+This is where everything comes together. The main file of the game in which ll the modules and functions are fed into to make the game run the way it does. In it, I've created instances for settings, the ship (player), groups for the bullet class and enemy class, as well as created a flag for the game to check when it is active. When it is, the player will be able to enjoy the game. Otherwise, what should appear on the screen is a green button that reads "Play."
