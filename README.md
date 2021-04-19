@@ -1,4 +1,7 @@
 # Titania Space Shooter
+#### Video Demo: https://youtu.be/4iYyXkEQIJ4
+#### Description:
+
 ## Introduction
 Titania is a project that was able to be brought to life through a long series of trial and error. I made it my mission to be able to build this simple game as best as I could while understanding the ins and outs of what I was writing out. In the process of creating this project, I took time to specifically study Python and Pygame and the ins and outs that go into creating a 2D project like this. While this is functionally a clone of the classic "Space Invaders" arcade game, my hope is to continue working on this project well after CS50 and develop it into a full fledged space-shooter or even a bullet-hell game.
 
